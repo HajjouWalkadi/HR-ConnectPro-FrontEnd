@@ -62,90 +62,21 @@ export class DesignationsComponent implements OnInit {
       }
     );
   }
-  // private getTableData(): void {
-  //   this.lstDesignation = [];
-  //   this.serialNumberArray = [];
-
-  //   this.data.getDesignations().subscribe((res: apiResultFormat) => {
-  //     this.totalData = res.totalData;
-  //     res.data.map((res: getDesignations, index: number) => {
-  //       const serialNumber = index + 1;
-  //       if (index >= this.skip && serialNumber <= this.limit) {
-  //         res.id = serialNumber;
-  //         this.lstDesignation.push(res);
-  //         this.serialNumberArray.push(serialNumber);
-  //       }
-  //     });
-  //     this.dataSource = new MatTableDataSource<getDesignations>(this.lstDesignation);
-  //     this.calculateTotalPages(this.totalData, this.pageSize);
-  //   });
-
  
-  // }
-
-  // public sortData(sort: Sort) {
-  //   const data = this.lstDesignation.slice();
-
-  //   /* eslint-disable @typescript-eslint/no-explicit-any */
-  //   if (!sort.active || sort.direction === '') {
-  //     this.lstDesignation = data;
-  //   } else {
-  //     this.lstDesignation = data.sort((a: any, b: any) => {
-  //       const aValue = (a as any)[sort.active];
-  //       const bValue = (b as any)[sort.active];
-  //       return (aValue < bValue ? -1 : 1) * (sort.direction === 'asc' ? 1 : -1);
-  //     });
-  //   }
-  // }
-
-  // public searchData(value: string): void {
-  //   this.dataSource.filter = value.trim().toLowerCase();
-  //   this.lstDesignation = this.dataSource.filteredData;
-  // }
-
-  // public getMoreData(event: string): void {
-  //   if (event === 'next') {
-  //     this.currentPage++;
-  //     this.pageIndex = this.currentPage - 1;
-  //     this.limit += this.pageSize;
-  //     this.skip = this.pageSize * this.pageIndex;
-  //     this.getTableData();
-  //   } else if (event === 'previous') {
-  //     this.currentPage--;
-  //     this.pageIndex = this.currentPage - 1;
-  //     this.limit -= this.pageSize;
-  //     this.skip = this.pageSize * this.pageIndex;
-  //     this.getTableData();
-  //   }
-  // }
-
-  // public moveToPage(pageNumber: number): void {
-  //   this.currentPage = pageNumber;
-  //   this.skip = this.pageSelection[pageNumber - 1].skip;
-  //   this.limit = this.pageSelection[pageNumber - 1].limit;
-  //   if (pageNumber > this.currentPage) {
-  //     this.pageIndex = pageNumber - 1;
-  //   } else if (pageNumber < this.currentPage) {
-  //     this.pageIndex = pageNumber + 1;
-  //   }
-  //   this.getTableData();
-  // }
-
- 
-
-  // private calculateTotalPages(totalData: number, pageSize: number): void {
-  //   this.pageNumberArray = [];
-  //   this.totalPages = totalData / pageSize;
-  //   if (this.totalPages % 1 !== 0) {
-  //     this.totalPages = Math.trunc(this.totalPages + 1);
-  //   }
-  //   for (let i = 1; i <= this.totalPages; i++) {
-  //     const limit = pageSize * i;
-  //     const skip = limit - pageSize;
-  //     this.pageNumberArray.push(i);
-  //     this.pageSelection.push({ skip: skip, limit: limit });
-  //   }
-  // }
+  deleteDesignation(designationId: number) {
+    if (confirm('Are you sure you want to delete this designation?')) {
+      this.designationService.deleteDesignation(designationId).subscribe({
+        next: () => {
+          alert('Designation deleted successfully');
+          this.loadDesignations(); 
+        },
+        error: (error) => {
+          console.error('There was an error!', error);
+          alert(`Failed to delete designation: : ${error.statusText}`);
+        }
+      });
+    }
+  }
 }
 export interface pageSelection {
   skip: number;

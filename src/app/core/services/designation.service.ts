@@ -23,4 +23,8 @@ export class DesignationService {
     addDesignation(designation: Designation): Observable<Designation> {
         return this.http.post<Designation>(`${this.baseUrl}/add`, designation);
     }
+
+    deleteDesignation(id: number): Observable<any> {
+        return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+      }
 }
