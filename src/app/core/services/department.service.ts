@@ -20,5 +20,8 @@ export class DepartmentService {
     return this.http.post<Department>(`${this.baseUrl}/add`, department);
   }
 
-  // Add other methods for updating, deleting, etc.
+  deleteDepartment(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
+  
 }
