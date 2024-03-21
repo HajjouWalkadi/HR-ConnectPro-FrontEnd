@@ -9,119 +9,86 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form [formGroup]="addEmployeeForm">
+                <form #addEmployeeForm="ngForm">
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="input-block mb-3">
                                 <label class="col-form-label" for="">First Name <span class="text-danger">*</span></label>
                                 <input class="form-control" type="text"
-                                    [class.invalid]="addEmployeeForm.get('FirstName')?.invalid && addEmployeeForm.get('FirstName')?.touched"
-                                    formControlName="FirstName">
-                                <div
+                                    name="firstName" [(ngModel)]="newEmployee.firstName">
+                                <!-- <div
                                     *ngIf="addEmployeeForm.get('FirstName')?.invalid && addEmployeeForm.get('FirstName')?.touched">
                                     <small
                                         *ngIf="addEmployeeForm.get('FirstName')?.invalid && addEmployeeForm.get('FirstName')?.touched"
                                         class="text-danger"> *Firstname is required</small>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="input-block mb-3">
                                 <label class="col-form-label" for="">Last Name</label>
                                 <input class="form-control" type="text"
-                                    [class.invalid]="addEmployeeForm.get('LastName')?.invalid && addEmployeeForm.get('LastName')?.touched"
-                                    formControlName="LastName">
-                                <div
+                                 name="lastName" [(ngModel)]="newEmployee.lastName">
+                                <!-- <div
                                     *ngIf="addEmployeeForm.get('LastName')?.invalid && addEmployeeForm.get('LastName')?.touched">
                                     <small
                                         *ngIf="addEmployeeForm.get('LastName')?.invalid && addEmployeeForm.get('LastName')?.touched"
                                         class="text-danger"> *Lastname is required</small>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="input-block mb-3">
                                 <label class="col-form-label" for="">Username <span class="text-danger">*</span></label>
                                 <input class="form-control" type="text"
-                                    [class.invalid]="addEmployeeForm.get('UserName')?.invalid && addEmployeeForm.get('UserName')?.touched"
-                                    formControlName="UserName">
-                                <div
+                                   name="Username" [(ngModel)]="newEmployee.username">
+                                <!-- <div
                                     *ngIf="addEmployeeForm.get('UserName')?.invalid && addEmployeeForm.get('UserName')?.touched">
                                     <small
                                         *ngIf="addEmployeeForm.get('UserName')?.invalid && addEmployeeForm.get('UserName')?.touched"
                                         class="text-danger"> *Username is required</small>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="input-block mb-3">
                                 <label class="col-form-label" for="">Email <span class="text-danger">*</span></label>
                                 <input class="form-control" type="email"
-                                    [class.invalid]="addEmployeeForm.get('Email')?.invalid && addEmployeeForm.get('Email')?.touched"
-                                    formControlName="Email">
-                                <div
+                                    name="email" [(ngModel)]="newEmployee.email">
+                                <!-- <div
                                     *ngIf="addEmployeeForm.get('Email')?.invalid && addEmployeeForm.get('Email')?.touched">
                                     <small
                                         *ngIf="addEmployeeForm.get('Email')?.invalid && addEmployeeForm.get('Email')?.touched"
                                         class="text-danger"> *Email is required</small>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
-                        <div class="col-sm-6">
+                        <!-- <div class="col-sm-6">
                             <div class="input-block mb-3">
                                 <label class="col-form-label" for="">Password</label>
                                 <input class="form-control" type="password"
-                                    [class.invalid]="addEmployeeForm.get('Password')?.invalid && addEmployeeForm.get('Password')?.touched"
-                                    formControlName="Password">
+                                    name="password" [(ngModel)]="newEmployee.password">
                                 <div
                                     *ngIf="addEmployeeForm.get('Password')?.invalid && addEmployeeForm.get('Password')?.touched">
                                     <small
                                         *ngIf="addEmployeeForm.get('Password')?.invalid && addEmployeeForm.get('Password')?.touched"
                                         class="text-danger"> *Password is required</small>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- <div class="col-sm-6">
-                            <div class="input-block mb-3">
-                                <label class="col-form-label" for="">Confirm Password</label>
-                                <input class="form-control" type="password"
-                                    [class.invalid]="addEmployeeForm.get('ConfirmPassword')?.invalid && addEmployeeForm.get('ConfirmPassword')?.touched"
-                                    formControlName="ConfirmPassword">
-                                <div
-                                    *ngIf="addEmployeeForm.get('ConfirmPassword')?.invalid && addEmployeeForm.get('ConfirmPassword')?.touched">
-                                    <small
-                                        *ngIf="addEmployeeForm.get('ConfirmPassword')?.invalid && addEmployeeForm.get('ConfirmPassword')?.touched"
-                                        class="text-danger"> *ConfirmPassword is required</small>
-                                </div>
+                                </div> 
                             </div>
                         </div> -->
-                        <!-- <div class="col-sm-6">
-                            <div class="input-block mb-3">
-                                <label class="col-form-label" for="">Employee ID <span class="text-danger">*</span></label>
-                                <input type="text" class="form-control"
-                                    [class.invalid]="addEmployeeForm.get('EmployeeID')?.invalid && addEmployeeForm.get('EmployeeID')?.touched"
-                                    formControlName="EmployeeID">
-                                <div
-                                    *ngIf="addEmployeeForm.get('EmployeeID')?.invalid && addEmployeeForm.get('EmployeeID')?.touched">
-                                    <small
-                                        *ngIf="addEmployeeForm.get('EmployeeID')?.invalid && addEmployeeForm.get('EmployeeID')?.touched"
-                                        class="text-danger"> *Employee ID is required</small>
-                                </div>
-                            </div>
-                        </div> -->
+                       
                         <div class="col-sm-6">
                             <div class="input-block mb-3 date-input1">
                                 <label class="col-form-label" for="">Joining Date <span class="text-danger">*</span></label>
                                 <div class="cal-icon">
                                     <input class="form-control datetimepicker" type="text" bsDatepicker type="text" container=".date-input1"
-                                        [class.invalid]="addEmployeeForm.get('JoinDate')?.invalid && addEmployeeForm.get('JoinDate')?.touched"
-                                        formControlName="JoinDate">
-                                    <div
+                                        name="dateEmbauche" [(ngModel)]="newEmployee.dateEmbauche">
+                                    <!-- <div
                                         *ngIf="addEmployeeForm.get('JoinDate')?.invalid && addEmployeeForm.get('JoinDate')?.touched">
                                         <small
                                             *ngIf="addEmployeeForm.get('JoinDate')?.invalid && addEmployeeForm.get('JoinDate')?.touched"
                                             class="text-danger"> *JoinDate is required</small>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>
@@ -129,403 +96,52 @@
                             <div class="input-block mb-3">
                                 <label class="col-form-label" for="">Phone </label>
                                 <input class="form-control" type="text"
-                                    [class.invalid]="addEmployeeForm.get('PhoneNumber')?.invalid && addEmployeeForm.get('PhoneNumber')?.touched"
-                                    formControlName="PhoneNumber">
-                                <div
+                                    name="telephone" [(ngModel)]="newEmployee.telephone">
+                                <!-- <div
                                     *ngIf="addEmployeeForm.get('PhoneNumber')?.invalid && addEmployeeForm.get('PhoneNumber')?.touched">
                                     <small
                                         *ngIf="addEmployeeForm.get('PhoneNumber')?.invalid && addEmployeeForm.get('PhoneNumber')?.touched"
                                         class="text-danger"> *Phone is required</small>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
-                        <!-- <div class="col-sm-6">
-                            <div class="input-block mb-3">
-                                <label class="col-form-label" for="">Company</label>
-                                <mat-select  class="select mat-cust-select form-control"
-                                    [class.invalid]="addEmployeeForm.get('CompanyName')?.invalid && addEmployeeForm.get('CompanyName')?.touched"
-                                    formControlName="CompanyName">
-                                    <mat-option value="">Global Technologies</mat-option>
-                                    <mat-option value="1">Delta Infotech</mat-option>
-                                </mat-select>
-                                <div
-                                    *ngIf="addEmployeeForm.get('CompanyName')?.invalid && addEmployeeForm.get('CompanyName')?.touched">
-                                    <small
-                                        *ngIf="addEmployeeForm.get('CompanyName')?.invalid && addEmployeeForm.get('CompanyName')?.touched"
-                                        class="text-danger"> Company Name required</small>
-                                </div>
-                            </div>
-                        </div> -->
+                        
                         <div class="col-md-6">
                             <div class="input-block mb-3">
                                 <label class="col-form-label" for="">Department <span class="text-danger">*</span></label>
                                 <mat-select  class="select mat-cust-select form-control"
-                                    [class.invalid]="addEmployeeForm.get('DepartmentName')?.invalid && addEmployeeForm.get('DepartmentName')?.touched"
-                                    formControlName="DepartmentName" placeholder="Select Department">
-                                    <mat-option value="select">Select Department</mat-option>
-                                    <mat-option value="development">Web Development</mat-option>
-                                    <mat-option value="it">IT Management</mat-option>
-                                    <mat-option value="marketing">Marketing</mat-option>
+                                    name="department" placeholder="Select Department" [(ngModel)]="newEmployee.departmentNom">
+                                    <mat-option value="">Select Department</mat-option>
+                                    <mat-option *ngFor="let departement of departements" [value]="departement.nom">{{ departement.nom }}</mat-option>
                                 </mat-select>
-                                <div
+                                <!-- <div
                                     *ngIf="addEmployeeForm.get('DepartmentName')?.invalid && addEmployeeForm.get('DepartmentName')?.touched">
                                     <small
                                         *ngIf="addEmployeeForm.get('DepartmentName')?.invalid && addEmployeeForm.get('DepartmentName')?.touched"
                                         class="text-danger"> *Department Name required</small>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="input-block mb-3">
                                 <label class="col-form-label" for="">Designation <span class="text-danger">*</span></label>
                                 <mat-select  class="select mat-cust-select form-control"
-                                    [class.invalid]="addEmployeeForm.get('Designation')?.invalid && addEmployeeForm.get('Designation')?.touched"
-                                    formControlName="Designation" placeholder="Select Designation">
-                                    <mat-option value="designation">Select Designation</mat-option>
-                                    <mat-option value="designer">Web Designer</mat-option>
-                                    <mat-option value="developer">Web Developer</mat-option>
-                                    <mat-option value="android">Android Developer</mat-option>
+                                    name="designation" placeholder="Select Designation" [(ngModel)]="newEmployee.designationNom">
+                                    <mat-option value="">Select Designation</mat-option>
+                                    <mat-option *ngFor="let designation of designations" [value]="designation.nom">{{ designation.nom }}</mat-option>
                                 </mat-select>
-                                <div
+                                <!-- <div
                                     *ngIf="addEmployeeForm.get('Designation')?.invalid && addEmployeeForm.get('Designation')?.touched">
                                     <small
                                         *ngIf="addEmployeeForm.get('Designation')?.invalid && addEmployeeForm.get('Designation')?.touched"
                                         class="text-danger"> *Designation Name required</small>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="table-responsive m-t-15">
-                        <table class="table table-striped custom-table">
-                            <thead>
-                                <tr>
-                                    <th>Module Permission</th>
-                                    <th class="text-center">Read</th>
-                                    <th class="text-center">Write</th>
-                                    <th class="text-center">Create</th>
-                                    <th class="text-center">Delete</th>
-                                    <th class="text-center">Import</th>
-                                    <th class="text-center">Export</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Holidays</td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Leaves</td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Clients</td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Projects</td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Tasks</td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Chats</td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Assets</td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>Timing Sheets</td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" checked>
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                    <td class="text-center">
-                                        <label class="custom_check">
-                                            <input type="checkbox" name="rememberme" class="rememberme">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div> -->
+                    
                     <div class="submit-section">
-                        <button class="btn btn-primary submit-btn" type="submit">Submit</button>
+                        <button class="btn btn-primary submit-btn" type="submit" (click)="addEmployee()">Submit</button>
                     </div>
                 </form>
             </div>

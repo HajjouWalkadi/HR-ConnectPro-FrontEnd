@@ -83,7 +83,7 @@
                 <h4 class="user-name m-t-10 mb-0 text-ellipsis"><a
                     [routerLink] = "routes.employeeProfile">{{emp.firstName + " " + emp.lastName }}</a>
                 </h4>
-                <div class="small text-muted" >{{ getDesignationName(emp.poste) }}</div>
+                <div class="small text-muted" >{{ emp.designationNom ?? 'Poste Inconnu' }}</div>
             </div>
         </div>
     </div>

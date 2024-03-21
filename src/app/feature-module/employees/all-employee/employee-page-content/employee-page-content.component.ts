@@ -39,12 +39,12 @@ export class EmployeePageContentComponent implements OnInit{
     
   
 
-    getDesignationName(designationId: number | undefined): string {
-  if (!designationId) {
-    return 'Poste Inconnu';
-  }
-  return this.designations[designationId] || 'Poste Inconnu';
-}
+//     getDesignationName(designationId: number | undefined): string {
+//   if (!designationId) {
+//     return 'Poste Inconnu';
+//   }
+//   return this.designations[designationId] || 'Poste Inconnu';
+// }
 
   //  this.lstEmployee = this.dataservice.lstEmployee
 
