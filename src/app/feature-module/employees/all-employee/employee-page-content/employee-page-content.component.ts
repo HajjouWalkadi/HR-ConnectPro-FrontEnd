@@ -37,17 +37,20 @@ export class EmployeePageContentComponent implements OnInit{
       });
     }
     
-  
-
-//     getDesignationName(designationId: number | undefined): string {
-//   if (!designationId) {
-//     return 'Poste Inconnu';
-//   }
-//   return this.designations[designationId] || 'Poste Inconnu';
-// }
-
-  //  this.lstEmployee = this.dataservice.lstEmployee
-
+    deleteEmployee(employeeId: number) {
+      if (confirm('Are you sure you want to delete this employee?')) {
+        this.employeeService.deleteEmployee(employeeId).subscribe({
+          next: () => {
+            alert('Employee deleted successfully');
+            this.loadEmployees(); 
+          },
+          error: (error) => {
+            console.error('There was an error!', error);
+            alert(`Failed to delete employee: : ${error.statusText}`);
+          }
+        });
+      }
+    }
   }
 
   

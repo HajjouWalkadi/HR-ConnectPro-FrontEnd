@@ -18,4 +18,8 @@ export class employeeService {
     addEmployee(employee: Employee): Observable<any> {
         return this.http.post<Employee>(`${this.baseUrl}/save`, employee);
     }
+
+    deleteEmployee(id: number): Observable<any> {
+        return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+      }
 }
