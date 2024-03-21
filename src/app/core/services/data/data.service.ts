@@ -638,11 +638,11 @@ export class DataService {
               route: routes.admin,
               base: 'admin',
             },
-            {
-              menuValue: 'Employee Dashboard',
-              route: routes.employee,
-              base: 'employee',
-            },
+            // {
+            //   menuValue: 'Employee Dashboard',
+            //   route: routes.employee,
+            //   base: 'employee',
+            // },
           ],
         },
         // {
@@ -700,7 +700,7 @@ export class DataService {
           showSubRoute: false,
           icon: 'user',
           base: 'employees',
-          dot: true,
+          // dot: true,
           materialicons: 'people',
           subMenus: [
             {
@@ -711,31 +711,31 @@ export class DataService {
             },
             { menuValue: 'Holidays', route: routes.holidays, base: 'holidays' },
             {
-              menuValue: 'Leaves (Admin)',
+              menuValue: 'Leaves',
               route: routes.leaveadmin,
               base: 'leave-admin',
-              currentActive: true
+              // currentActive: true
             },
-            {
-              menuValue: 'Leaves (Employee)',
-              route: routes.leaveemployee,
-              base: 'leave-employee',
-            },
-            {
-              menuValue: 'Leave Settings',
-              route: routes.leavesettings,
-              base: 'leave-settings',
-            },
-            {
-              menuValue: 'Attendance (Admin)',
-              route: routes.attendanceadmin,
-              base: 'attendance-admin',
-            },
-            {
-              menuValue: 'Attendance (Employee)',
-              route: routes.attendanceemployee,
-              base: 'attendance-employee',
-            },
+            // {
+            //   menuValue: 'Leaves (Employee)',
+            //   route: routes.leaveemployee,
+            //   base: 'leave-employee',
+            // },
+            // {
+            //   menuValue: 'Leave Settings',
+            //   route: routes.leavesettings,
+            //   base: 'leave-settings',
+            // },
+            // {
+            //   menuValue: 'Attendance (Admin)',
+            //   route: routes.attendanceadmin,
+            //   base: 'attendance-admin',
+            // },
+            // {
+            //   menuValue: 'Attendance (Employee)',
+            //   route: routes.attendanceemployee,
+            //   base: 'attendance-employee',
+            // },
             {
               menuValue: 'Departments',
               route: routes.departments,
@@ -751,11 +751,11 @@ export class DataService {
               route: routes.timesheet,
               base: 'timesheet',
             },
-            {
-              menuValue: 'Shift & Schedule',
-              route: routes.shiftschedule,
-              base: 'shift-schedule',
-            },
+            // {
+            //   menuValue: 'Shift & Schedule',
+            //   route: routes.shiftschedule,
+            //   base: 'shift-schedule',
+            // },
             { menuValue: 'Overtime', route: routes.overtime, base: 'overtime' },
           ],
         },
@@ -1019,33 +1019,33 @@ export class DataService {
     //         },
     //       ],
     //     },
-    //     {
-    //       menuValue: 'Goals',
-    //       route: routes.crosshairs,
-    //       hasSubRoute: true,
-    //       showSubRoute: false,
-    //       icon: 'box',
-    //       base: 'goals',
-    //       materialicons: 'track_changes',
-    //       subMenus: [
-    //         { menuValue: 'Goal List', route: routes.list, base: 'list' },
-    //         { menuValue: 'Goal Type', route: routes.type, base: 'type' },
-    //       ],
-    //     },
-    //     {
-    //       menuValue: 'Training',
-    //       route: routes.training,
-    //       hasSubRoute: true,
-    //       showSubRoute: false,
-    //       icon: 'edit',
-    //       base: 'training',
-    //       materialicons: 'checklist_rtl',
-    //       subMenus: [
-    //         { menuValue: 'Training List', route: routes.lists, base: 'lists' },
-    //         { menuValue: 'Trainers', route: routes.trainer, base: 'trainer' },
-    //         { menuValue: 'Training Type', route: routes.types, base: 'types' },
-    //       ],
-    //     },
+        // {
+        //   menuValue: 'Goals',
+        //   route: routes.crosshairs,
+        //   hasSubRoute: true,
+        //   showSubRoute: false,
+        //   icon: 'box',
+        //   base: 'goals',
+        //   materialicons: 'track_changes',
+        //   subMenus: [
+        //     { menuValue: 'Goal List', route: routes.list, base: 'list' },
+        //     { menuValue: 'Goal Type', route: routes.type, base: 'type' },
+        //   ],
+        // },
+        // {
+        //   menuValue: 'Training',
+        //   route: routes.training,
+        //   hasSubRoute: true,
+        //   showSubRoute: false,
+        //   icon: 'edit',
+        //   base: 'training',
+        //   materialicons: 'checklist_rtl',
+        //   subMenus: [
+        //     { menuValue: 'Training List', route: routes.lists, base: 'lists' },
+        //     { menuValue: 'Trainers', route: routes.trainer, base: 'trainer' },
+        //     { menuValue: 'Training Type', route: routes.types, base: 'types' },
+        //   ],
+        // },
     //     {
     //       menuValue: 'Promotion',
     //       route: routes.promotion,
