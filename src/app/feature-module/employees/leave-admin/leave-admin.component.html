@@ -59,32 +59,7 @@
                 </mat-form-field>
             </div>
         </div>
-        <!-- <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
-            <div class="input-block mb-3 form-focus select-focus select">
-                <mat-form-field appearance="fill">
-                  <mat-label>Leave Type</mat-label>
-                  <mat-select  [(value)]="selected2">
-                    <mat-option> -- Select -- </mat-option>
-                    <mat-option value="option1">Casual Leave</mat-option>
-                    <mat-option value="option2">Medical Leave</mat-option>
-                    <mat-option value="option3">Loss of Pay</mat-option>
-                  </mat-select>
-                </mat-form-field>
-            </div>
-        </div> -->
-        <!-- <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
-            <div class="input-block mb-3 form-focus select-focus select">
-                <mat-form-field appearance="fill">
-                  <mat-label>Leave Status</mat-label>
-                  <mat-select [(value)]="selected3">
-                    <mat-option> -- Select -- </mat-option>
-                    <mat-option value="option1">Pending</mat-option>
-                    <mat-option value="option2">Approved</mat-option>
-                    <mat-option value="option3">Rejected</mat-option>
-                  </mat-select>
-                </mat-form-field>
-            </div>
-        </div> -->
+        
         <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
             <div class="input-block mb-3 form-focus inputs date-input1">
                 <mat-form-field class="example-full-width cal-icon">
@@ -160,16 +135,6 @@
                             <td>{{row.description}}</td>
                             <td class="text-center">
                                 <div class="dropdown action-label">
-                                    <!-- <a class="btn btn-white btn-sm btn-rounded dropdown-toggle"
-                                        data-bs-toggle="dropdown" aria-expanded="false">
-                                        <i class="fa-regular fa-circle-dot me-1"  [ngClass]="{'text-success': row.status === 'Approved','text-danger': row.status === 'Declined','text-purple':row.status === 'New'}"></i>{{row.status || 'Pending'}}
-                                    </a> -->
-                                    <!-- <div class="dropdown-menu dropdown-menu-right" (change)="changeStatus()" [(ngModel)]="selected_status">
-                                        <a class="dropdown-item" href="javascript:void(0);"><i class="fa-regular fa-circle-dot text-purple"></i> New</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i class="fa-regular fa-circle-dot text-info"></i> Pending</a>
-                                        <a class="dropdown-item" href="javascript:void(0);" data-bs-toggle="modal" data-bs-target="#approve_leave"><i class="fa-regular fa-circle-dot text-success"></i> Approved</a>
-                                        <a class="dropdown-item" href="javascript:void(0);"><i class="fa-regular fa-circle-dot text-danger"></i> Declined</a>
-                                    </div> -->
                                     <mat-select  class="input-block mb-3 form-control" (selectionChange)="changeStatus(row)" name="status" [(ngModel)]="row.status">
                                         <!-- <mat-option *ngFor="let var of variables" value="leave">{{}}</mat-option> -->
                                         <mat-option value="PENDING">Pending</mat-option>
@@ -183,11 +148,13 @@
                                     <a class="action-icon dropdown-toggle" data-bs-toggle="dropdown"
                                         aria-expanded="false"><i class="material-icons">more_vert</i></a>
                                     <div class="dropdown-menu dropdown-menu-right">
-                                        <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit_leave"><i
-                                                class="fa-solid fa-pencil m-r-5"></i> Edit</a>
-                                        <a class="dropdown-item" data-bs-toggle="modal"
+                                        <!-- <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit_leave"><i
+                                                class="fa-solid fa-pencil m-r-5"></i> Edit</a> -->
+                                        <!-- <a class="dropdown-item" data-bs-toggle="modal"
                                             data-bs-target="#delete_approve"><i class="fa-regular fa-trash-can m-r-5"></i>
-                                            Delete</a>
+                                            Delete</a> -->
+                                            <a class="dropdown-item" (click)="deleteLeaveAdmin(row.id)"><i class="fa-regular fa-trash-can m-r-5"></i> Delete</a>
+
                                     </div>
                                 </div>
                             </td>
@@ -209,61 +176,7 @@
                     </div>
                 </div>
 
-                <!-- <div class="col-sm-12 col-md-7">
-                    <div class="pagination_section">
-                        <ul class="pagination">
-                            <li class="page-item" [ngClass]="{
-                          disabled: currentPage === 1
-                        }">
-                                <a (click)="getMoreData('previous')" class="page-link" href="javascript:void(0);"
-                                    tabindex="-1">Previous</a>
-                            </li>
-
-                            <ng-container *ngFor="let item of pageNumberArray; let i = index">
-                                <li class="page-item" [class.active]="item === currentPage" [ngClass]="
-                            (pageNumberArray[currentPage - 2] > item &&
-                              item !== 1 &&
-                              pageNumberArray.length > 6) ||
-                            (pageNumberArray[currentPage] < item &&
-                              item !== 1 &&
-                              pageNumberArray.length > 6 &&
-                              pageNumberArray.length !== item)
-                              ? 'hide-page-no'
-                              : 'show-page-no'
-                          ">
-                                    <a (click)="moveToPage(item)" class="page-link" href="javascript:void(0);">
-                                        {{ item }}
-                                    </a>
-                                </li>
-                                <li class="page-item" *ngIf="
-                            i === 0 && pageNumberArray.length > 6 && currentPage > 2
-                          " [hidden]="currentPage === 1" (click)="moveToPage(currentPage - 2)" (keydown.enter)="moveToPage(currentPage - 2)" tabindex="0">
-                                    <a class="page-link" href="javascript:void(0);"> ... </a>
-                                </li>
-                                <li *ngIf="
-                            i === pageNumberArray.length - 2 &&
-                            pageNumberArray.length > 6
-                          " [hidden]="
-                            currentPage >=
-                              pageNumberArray[pageNumberArray.length - 2] ||
-                            totalData < serialNumberArray[serialNumberArray.length - 1]
-                          " class="page-item" (click)="moveToPage(currentPage + 2)" (keydown.enter)="moveToPage(currentPage + 2)" tabindex="0">
-                                    <a class="page-link" href="javascript:void(0);"> ... </a>
-                                </li>
-                            </ng-container>
-
-                            <li class="page-item" [ngClass]="{
-                          disabled:
-                            currentPage ===
-                              pageNumberArray[pageNumberArray.length - 1] ||
-                              lstLeave.length === 0
-                        }">
-                                <a (click)="getMoreData('next')" class="page-link" href="javascript:void(0);">Next
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div> -->
+            
             </div>
         </div>
     </div>

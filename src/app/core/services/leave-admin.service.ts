@@ -23,5 +23,16 @@ export class LeaveAdminService{
     return this.http.put(`${this.baseUrl}/change-status/`+conge_id,{}, {params: {status}});
   }
 
+  
+  // deleteLeaveAdmin(id: number): Observable<any> {
+  //   return this.http.delete(`${this.baseUrl}/${id}`);
+  // }
+  deleteLeaveAdmin(id: number): Observable<any> {
+    return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
+  }
+  
+  
+  
+
   // Add other methods for updating, deleting, etc.
 }

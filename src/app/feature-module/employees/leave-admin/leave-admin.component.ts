@@ -18,6 +18,7 @@ export class LeaveAdminComponent implements OnInit {
   leaveAdmin: LeaveAdmin[] = [];
   newLeaveAdmin: LeaveAdmin = {id: 0, typeConge: '', dateDebut: '', dateFin: '', status: '', description: '', leaveDays: 0, employeeId: 0};
   users: User[] = [];
+  
 
   public routes = routes;
   // pagination variables
@@ -86,9 +87,55 @@ export class LeaveAdminComponent implements OnInit {
     );
 
   }
+  // deleteLeaveAdmin(leaveId: number) {
+  //   if (confirm('Are you sure you want to delete this leave?')) {
+  //     this.leaveAdminService.deleteLeaveAdmin(leaveId).subscribe({
+  //       next: () => {
+  //         alert('Leave deleted successfully');
+  //         this.loadLeaveAdmin(); // Reload the leaveAdmin list
+  //       },
+  //       error: (error) => {
+  //         console.error('There was an error!', error);
+  //         alert('Failed to delete leave');
+  //       }
+  //     });
+  //   }
+  // }
+  // deleteLeaveAdmin(leaveId: number) {
+  //   if (confirm('Are you sure you want to delete this leave?')) {
+  //     this.leaveAdminService.deleteLeaveAdmin(leaveId).subscribe({
+  //       next: () => {
+  //         alert('Leave deleted successfully');
+  //         this.loadLeaveAdmin(); // Reload the leaveAdmin list
+  //       },
+  //       error: (error) => {
+  //         console.error('There was an error!', error);
+  //         alert(`Failed to delete leave: ${error.message}`);
+  //       }
+  //     });
+  //   }
+  // }
+  deleteLeaveAdmin(leaveId: number) {
+    if (confirm('Are you sure you want to delete this leave?')) {
+      this.leaveAdminService.deleteLeaveAdmin(leaveId).subscribe({
+        next: () => {
+          alert('Leave deleted successfully');
+          this.loadLeaveAdmin(); // Reload the leaveAdmin list
+        },
+        error: (error) => {
+          console.error('There was an error!', error);
+          alert(`Failed to delete leave: ${error.statusText}`);
+        }
+      });
+    }
+  }
+  
+  
 
   
-}
+
+} 
+
 export interface pageSelection {
   skip: number;
   limit: number;

@@ -6,9 +6,9 @@ export interface LeaveAdmin {
     status : string;
     description : string;
     leaveDays : number;
-    // employeeId : number;
     employeeId : number;
     employeeFullName? : string;
+    
 }
 
 export interface Employee {
