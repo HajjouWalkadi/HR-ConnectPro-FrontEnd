@@ -39,9 +39,9 @@ export class LoginComponent {
 
             localStorage.setItem('authToken', authenticationResponse.token);
 
-            localStorage.setItem('name', authenticationResponse.name);
-            localStorage.setItem('email', authenticationResponse.email);
-            localStorage.setItem('role', authenticationResponse.role.name);
+            // localStorage.setItem('name', authenticationResponse.name);
+           // localStorage.setItem('email', authenticationResponse.email);
+            // localStorage.setItem('role', authenticationResponse.role.name);
 
             // Extract and store authority names in local storage
             // const authorityNames = authenticationResponse.role.authorities.map((authority: any) => authority.name);
