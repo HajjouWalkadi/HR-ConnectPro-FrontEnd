@@ -4,6 +4,7 @@ export interface Employee {
     id?: number;
     lastName?: string;
     firstName?: string;
+    username?: string;
     email?: string;
     telephone?: string;
     dateNaissance?: string;
@@ -13,4 +14,6 @@ export interface Employee {
     department?: string;
     designationId?: number;
     role?: string;
+    designationNom?: string;
+    departmentNom?: string;
 }
