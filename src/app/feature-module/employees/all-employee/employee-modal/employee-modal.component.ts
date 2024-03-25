@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { DepartmentService } from 'src/app/core/services/department.service';
 import { DesignationService } from 'src/app/core/services/designation.service';
@@ -13,11 +13,24 @@ import { Employee } from 'src/app/models/employee';
   styleUrls: ['./employee-modal.component.scss']
 })
 export class EmployeeModalComponent implements OnInit {
+
+  @Input() newEmployee: Employee = {id: 0, lastName: '', firstName: '', email: '', dateNaissance:  new Date(), dateEmbauche: new Date() , telephone: '', poste: 0, department: ''};
   employee: Employee[] = [];
   designations: Designation[] = [];
   departements: Department[] = [];
-  newEmployee: Employee = {id: 0, lastName: '', firstName: '', email: '', dateNaissance: '', dateEmbauche: new Date() , telephone: '', poste: 0, department: ''};
 
+  public employees: Employee = {
+    id: 0, // Temporary placeholder; actual ID should be set when editing
+    firstName: '',
+    lastName: '',
+    username: '',
+    email: '',
+    dateDepart: new Date(),
+    telephone: '',
+    department: '',
+    poste: 0
+  };
+  
 
   constructor(
       private employeeService: employeeService,
@@ -55,7 +68,7 @@ export class EmployeeModalComponent implements OnInit {
     this.employeeService.addEmployee(this.newEmployee).subscribe(
       () => {
         this.loadEmployees();
-        this.newEmployee = {id: 0, lastName: '', firstName: '', email: '', dateNaissance: '', dateEmbauche: new Date() , telephone: '', poste: 0, department: ''};
+        this.newEmployee = {id: 0, lastName: '', firstName: '', email: '', dateNaissance: new Date(), dateEmbauche: new Date() , telephone: '', poste: 0, department: ''};
       },
       error => {
         console.error('Error adding employee:', error);
@@ -64,6 +77,40 @@ export class EmployeeModalComponent implements OnInit {
     );
   }
 
- 
+  // updateEmployee(employee: Employee) {
+  //   if (employee.id === undefined) {
+  //     console.error('Attempted to update an employee without an ID');
+  //     return;
+  //   }
+  
+  //   this.employeeService.updateEmployee(employee.id, employee).subscribe({
+  //     next: () => {
+  //       alert('Employee updated successfully');
+  //       this.loadEmployees(); // Reload the employees list to reflect the update
+  //     },
+  //     error: (error) => {
+  //       console.error('There was an error!', error);
+  //       alert('Failed to update employee');
+  //     }
+  //   });
+  // }
+
+  updateEmployee() {
+    if (this.employees.id) {
+      this.employeeService.updateEmployee(this.employees).subscribe({
+        next: () => {
+          alert('Employee updated successfully');
+          // Additional logic to handle successful update
+        },
+        error: (error) => {
+          console.error('Error updating employee:', error);
+          alert('Failed to update employee');
+        }
+      });
+    } else {
+      console.error('Employee ID is missing');
+    }
+  }
+  
 
 }
