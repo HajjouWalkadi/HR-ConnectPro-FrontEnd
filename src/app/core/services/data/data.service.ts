@@ -746,17 +746,17 @@ export class DataService {
               route: routes.designations,
               base: 'designations',
             },
-            {
-              menuValue: 'Timesheet',
-              route: routes.timesheet,
-              base: 'timesheet',
-            },
+            // {
+            //   menuValue: 'Timesheet',
+            //   route: routes.timesheet,
+            //   base: 'timesheet',
+            // },
             // {
             //   menuValue: 'Shift & Schedule',
             //   route: routes.shiftschedule,
             //   base: 'shift-schedule',
             // },
-            { menuValue: 'Overtime', route: routes.overtime, base: 'overtime' },
+            // { menuValue: 'Overtime', route: routes.overtime, base: 'overtime' },
           ],
         },
         // {

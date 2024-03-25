@@ -1,4 +1,5 @@
-import { Component, ViewChild } from "@angular/core";
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { O } from "@fullcalendar/core/internal-common";
 
 import {
   ChartComponent,
@@ -18,6 +19,7 @@ import {
 
 } from "ng-apexcharts";
 import { routes } from "src/app/core/helpers/routes/routes";
+import { DepartmentService } from "src/app/core/services/department.service";
 /* eslint-disable @typescript-eslint/no-explicit-any */
 export type ChartOptions = {
   series: ApexAxisChartSeries | any;
@@ -42,13 +44,15 @@ export type ChartOptions = {
   templateUrl: "./admin-dashboard.component.html",
   styleUrls: ["./admin-dashboard.component.scss"],
 })
-export class AdminDashboardComponent {
+export class AdminDashboardComponent implements OnInit{
   @ViewChild("chart") chart: ChartComponent | any;
+  departmentsCount = 0;
   public chartOptions2: Partial<ChartOptions> | any;
   public chartOptions1: Partial<ChartOptions> | any;
   public layoutWidth = '1';
   public routes = routes;
-  constructor() {
+
+  constructor(private departementService: DepartmentService) {
     this.chartOptions2 = {
       series: [
         {
@@ -163,5 +167,22 @@ export class AdminDashboardComponent {
       },
     };
    }
+
+   ngOnInit(): void {
+       this.getDepartmentCount();
+   }
+
+   getDepartmentCount() {
+    this.departementService
+      .departmentsCount()
+      .subscribe(
+        (response) => {
+          this.departmentsCount = response;
+        },
+        (error) => {
+          console.error('Error fetching Departments Count:', error);
+        }
+      );
+  }
 
 }

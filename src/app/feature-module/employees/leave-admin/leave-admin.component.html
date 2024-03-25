@@ -21,7 +21,7 @@
 
 
     <!-- Leave Statistics -->
-    <div class="row">
+    <!-- <div class="row">
         <div class="col-md-3">
             <div class="stats-info">
                 <h6>Today Presents</h6>
@@ -46,15 +46,14 @@
                 <h4>12</h4>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- /Leave Statistics -->
 
     <!-- Search Filter -->
-    <div class="row filter-row">
+    <!-- <div class="row filter-row">
         <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
             <div class="input-block mb-3 form-focus inputs">
                 <mat-form-field class="example-full-width">
-                    <!-- <mat-label>Employee ID</mat-label> -->
                     <input type="text" matInput>
                 </mat-form-field>
             </div>
@@ -79,13 +78,13 @@
         <div class="col-sm-6 col-md-3 col-lg-3 col-xl-2 col-12">
             <a class="btn btn-success w-100"> Search </a>
         </div>
-    </div>
+    </div> -->
     <!-- /Search Filter -->
 
     <div class="row">
         <div class="col-md-12">
             <div class="table_header">
-                <div class="row">
+                <!-- <div class="row">
                     <div class="col-sm-12 col-md-6">
                         <div class="dataTables_length">
                              <label class="col-form-label" for="">
@@ -101,7 +100,7 @@
                             </label>
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="table-responsive">
                 <table matSort id="datatable"
@@ -112,7 +111,6 @@
                             <th mat-sort-header="leaveType">Leave Type</th>
                             <th mat-sort-header="from">From</th>
                             <th mat-sort-header="to">To</th>
-                            <!-- <th mat-sort-header="noofDays">No of Days</th> -->
                             <th mat-sort-header="reason">Reason</th>
                             <th class="text-center">Status</th>
                             <th class="text-end">Actions</th>
@@ -122,8 +120,6 @@
                         <tr *ngFor="let row of leaveAdmin;let i = index">
                             <td>
                                 <h2 class="table-avatar">
-                                    <!-- <a [routerLink] = "routes.employeeProfile" class="avatar"><img alt=""
-                                            src="assets/img/profiles/avatar-{{i+ 1}}.jpg"></a> -->
                                     <a
                                         [routerLink] = "routes.employeeProfile">{{row.employeeFullName}} <span>{{row.leaveDays}}</span></a>
                                 </h2>
@@ -131,7 +127,6 @@
                             <td>{{row.typeConge}}</td>
                             <td>{{row.dateDebut}}</td>
                             <td>{{row.dateFin }}</td>
-                            <!-- <td>{{row.leaveDays}}</td> -->
                             <td>{{row.description}}</td>
                             <td class="text-center">
                                 <div class="dropdown action-label">
@@ -150,9 +145,7 @@
                                     <div class="dropdown-menu dropdown-menu-right">
                                         <!-- <a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#edit_leave"><i
                                                 class="fa-solid fa-pencil m-r-5"></i> Edit</a> -->
-                                        <!-- <a class="dropdown-item" data-bs-toggle="modal"
-                                            data-bs-target="#delete_approve"><i class="fa-regular fa-trash-can m-r-5"></i>
-                                            Delete</a> -->
+                                        
                                             <a class="dropdown-item" (click)="deleteLeaveAdmin(row.id)"><i class="fa-regular fa-trash-can m-r-5"></i> Delete</a>
 
                                     </div>
@@ -167,7 +160,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="table_footer">
+            <!-- <div class="table_footer">
                 <div class="col-sm-12 col-md-5">
                     <div class="dataTables_info">
                         Showing {{ serialNumberArray[0] }} to
@@ -177,7 +170,7 @@
                 </div>
 
             
-            </div>
+            </div> -->
         </div>
     </div>
 </div>
@@ -208,7 +201,7 @@
                     </div>
                     <div class="input-block mb-3" >
                         <label class="col-form-label" for="">Status <span class="text-danger">*</span></label>
-                        <mat-select  class="input-block mb-3 form-control"placeholder="Select Leave Type" name="typeConge" [(ngModel)]="newLeaveAdmin.status">
+                        <mat-select  class="input-block mb-3 form-control"placeholder="Select Leave Status" name="typeConge" [(ngModel)]="newLeaveAdmin.status">
                             <!-- <mat-option *ngFor="let var of variables" value="leave">{{}}</mat-option> -->
                             <mat-option value="PENDING">Pending</mat-option>
                             <mat-option value="APPROVED">Approved</mat-option>
@@ -233,14 +226,6 @@
                             <input class="form-control datetimepicker" name="dateFin" bsDatepicker container=".date-input4" type="text" [(ngModel)]="newLeaveAdmin.dateFin">
                         </div>
                     </div>
-                    <!-- <div class="input-block mb-3">
-                        <label class="col-form-label" for="">Number of days <span class="text-danger">*</span></label>
-                        <input class="form-control" readonly type="text" [(ngModel)]="newLeaveAdmin.leaveDays">
-                    </div> -->
-                    <!-- <div class="input-block mb-3">
-                        <label class="col-form-label" for="">Remaining Leaves <span class="text-danger">*</span></label>
-                        <input class="form-control" readonly value="18" type="text">
-                    </div> -->
                     <div class="input-block mb-3">
                         <label class="col-form-label" for="">Leave Reason <span class="text-danger">*</span></label>
                         <textarea rows="4" class="form-control" name="description" [(ngModel)]="newLeaveAdmin.description"></textarea>

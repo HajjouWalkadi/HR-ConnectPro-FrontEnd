@@ -7,7 +7,7 @@ export const adminGuard: CanActivateFn = (route, state) => {
    // Get the role from local storage
    const storedRole = localStorage.getItem('role');
 
-   if (storedRole === 'SUPER_ADMIN' || storedRole === 'ADMIN') {
+   if ( storedRole === 'ADMIN') {
       return true; 
    } else {
      return false;

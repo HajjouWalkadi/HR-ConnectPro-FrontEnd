@@ -1,4 +1,4 @@
-import { da } from "@fullcalendar/core/internal-common";
+import { D, da } from "@fullcalendar/core/internal-common";
 
 export interface Employee {
     id?: number;
@@ -7,7 +7,7 @@ export interface Employee {
     username?: string;
     email?: string;
     telephone?: string;
-    dateNaissance?: string;
+    dateNaissance?: Date;
     dateEmbauche?: Date;
     dateDepart?: Date;
     poste?: number;
