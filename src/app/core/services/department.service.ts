@@ -23,5 +23,9 @@ export class DepartmentService {
   deleteDepartment(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`, { responseType: 'text' });
   }
-  
+
+  departmentsCount(): Observable<number> {
+  return this.http.get<number>(`${this.baseUrl}/count`);
+}
+
 }
